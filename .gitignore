@@ -21,3 +21,10 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea/
+
+encodings.xml
+misc.xml
+modules.xml
+node-s-a.iml
+vcs.xml
+workspace.xml
