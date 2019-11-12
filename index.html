@@ -1,0 +1,66 @@
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" rel="stylesheet" />
+    <style>
+        #main {
+            margin: 2rem;
+        }
+
+        .big {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+<section class="hero is-success">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">How was your day?</h1>
+            <h2 class="subtitle">Sentiment analysis demo</h2>
+        </div>
+    </div>
+</section>
+<div id="main">
+    <table class="table is-fullwidth">
+        <thead>
+        <tr>
+            <th>Feeling</th>
+            <th>Score</th>
+            <th>Author</th>
+            <th>Comment</th>
+        </tr>
+        </thead>
+        <tbody id="sentimentTable">
+        </tbody>
+    </table>
+</div>
+<script>
+    var request = new XMLHttpRequest();
+    request.open('GET', '/data', true);
+
+    request.onload = function() {
+        if (request.status >= 200 && request.status < 400) {
+            var table = document.getElementById("sentimentTable")
+            var data = JSON.parse(request.responseText);
+            data.forEach(function(comment){
+                var newRow = table.insertRow(table.rows.length);
+                newRow.insertCell(0).innerHTML = comment.emoji
+                newRow.insertCell(1).innerHTML = comment.sentiment
+                var rowLink = document.createElement('a')
+                rowLink.innerHTML = comment.author
+                rowLink.href = comment.link
+                newRow.insertCell(2).appendChild(rowLink)
+                newRow.insertCell(3).innerHTML = comment.body
+            })
+        } else {
+            alert("Could not retrieve data")
+        }
+    };
+
+    request.onerror = function() {
+        alert("Could not retrieve data")
+    };
+
+    request.send();
+</script>
+</body>
