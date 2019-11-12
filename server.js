@@ -14,7 +14,7 @@ redditComments.forEach(function(comment) {
         comment.emoji = "😃";
     } else if (comment.sentiment > 0) {
         comment.emoji = "🙂";
-    } else if (comment.sentiment == 0) {
+    } else if (comment.sentiment === 0) {
         comment.emoji = "😐";
     } else {
         comment.emoji = "😕";
