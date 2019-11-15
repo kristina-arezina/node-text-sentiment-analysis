@@ -30,6 +30,7 @@ app.get("/data", function(req, res) {
     res.json(redditComments);
 });
 
+//start by running node server.js in termal and then localhost:3000 in browser
 //starts server and tells which port listening on
 const listener = app.listen(3000, function() {
     console.log("Your app is listening on port " + listener.address().port);
