@@ -8,6 +8,20 @@
         .big {
             font-size: 1.2rem;
         }
+
+        .input {
+          margin-left: 100px;
+          padding-top:50px;
+          padding-bottom:50px;
+          background-color: rgba(10,10,10,.3);
+          border-style: none;
+          pointer-events: none;
+        }
+
+        .event {
+          pointer-events: auto;
+        }
+
     </style>
 </head>
 
@@ -18,24 +32,27 @@
     <div class="hero-body">
         <div class="container">
             <h1 class="title">How was your day?</h1>
-            <h2 class="subtitle">Sentiment analysis demo</h2>
+            <h2 class="subtitle">Sentiment Analysis</h2>
+            <form class="input">
+            <fieldset id="middle">
+              <div class="event">
+                <p>
+                    <label>Enter an account for how your day went</label>
+                    <input type = "text"
+                           id = "myText"
+                           placeholder="Text here" />
+                </p>
+                <p>
+                    <label>Name</label>
+                    <input>
+                </p>
+                <button type="button">Go!</button>
+                </div>
+            </fieldset>
+          </form>
         </div>
-    </div><form>
-    <fieldset id="middle">
-        <p>
-            <label>Enter an account for how your day went</label>
-            <input type = "text"
-                   id = "myText"
-                   placeholder="Text here" />
-        </p>
-        <p>
-            <label>Name</label>
-            <input>
-        </p>
-    </fieldset>
-    <button type="button">Go!</button>
+    </div>
 
-</form>
 
 </section>
 <div id="main">
