@@ -14,7 +14,6 @@
 <body>
 
 
-
 <section class="hero is-success">
     <div class="hero-body">
         <div class="container">
@@ -34,7 +33,7 @@
             <input>
         </p>
     </fieldset>
-    <button type="button">Click Me!</button>
+    <button type="button">Go!</button>
 
 </form>
 
@@ -45,7 +44,6 @@
         <tr>
             <th>Feeling</th>
             <th>Score</th>
-            <th>Author</th>
             <th>Comment</th>
         </tr>
         </thead>
@@ -55,6 +53,9 @@
 </div>
 <script>
      <!--script sends web request to /data and creates new row in table for each sentiment analyzed-->
+
+
+
     var request = new XMLHttpRequest();
     request.open('GET', '/data', true);
 
@@ -67,7 +68,6 @@
                 newRow.insertCell(0).innerHTML = comment.emoji
                 newRow.insertCell(1).innerHTML = comment.sentiment
                 var rowLink = document.createElement('a')
-                rowLink.innerHTML = comment.author
                 rowLink.href = comment.link
                 newRow.insertCell(2).appendChild(rowLink)
                 newRow.insertCell(3).innerHTML = comment.body
